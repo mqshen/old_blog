@@ -168,6 +168,13 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	}
 	
 	#banner h1 strong {font-size: 0.36em; font-weight: normal;}
+
+	#banner h2 strong {
+		margin: .2em 0 0;
+		font-size: 1em;
+		color: #AAA;
+		font-weight: normal;
+	}
 	
 	/* Main Nav */
 	#banner nav {
