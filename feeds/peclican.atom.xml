@@ -4,10 +4,16 @@
 &lt;h1 id="0++++"&gt;0.环境介绍&lt;/h1&gt;
 &lt;p&gt;OS: centos 6&lt;/p&gt;
 &lt;h1 id="1++peclican"&gt;1.安装peclican&lt;/h1&gt;
-&lt;p&gt;我是在github上下载了&lt;a href="https://github.com/getpelican/pelican.git"&gt;pelican&lt;/a&gt;的源码来安装的
-    python setup.py install
-我们还需要安装markdown依赖
-    yum install python-markdown&lt;/p&gt;
+&lt;p&gt;我是在github上下载了&lt;a href="https://github.com/getpelican/pelican.git"&gt;pelican&lt;/a&gt;的源码来安装的&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;我们还需要安装markdown依赖&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;yum&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;markdown&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h1 id="2settingspy"&gt;2.settings.py&lt;/h1&gt;
 &lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
 &lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;
