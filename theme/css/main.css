@@ -303,8 +303,14 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 	
 	/* Social */
 	#extras .social {
-		float: right;
 		width: 175px;
+		background: white;
+		margin-bottom: 5px;
+		overflow: hidden;
+		padding: 10px;
+		border-radius: 3px;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
 	}
 	
 	#extras div[class='social'] a {
