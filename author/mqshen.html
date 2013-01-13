@@ -25,7 +25,7 @@
         <header id="banner" class="body">
                 <h1><a href="../">mqShen </a></h1>
                  <h2><strong>simple simple simple</strong></h2>                <nav><ul>
-                                                                                                    <li ><a href="../category/test.html">Test</a></li>
+                                                                                                    <li ><a href="../category/tools.html">tools</a></li>
                                 </ul></nav>
         </header><!-- /#banner -->
                 
@@ -35,29 +35,100 @@
 	
 	        <aside id="featured" class="body">
 	            <article>
-	                <h1 class="entry-title"><a href="../test.html">test</a></h1> 
-					<footer class="post-info">
-        <abbr class="published" title="2013-01-13T00:00:00">
-                Sun 13 January 2013
-        </abbr>
-
-
-</footer><!-- /.post-info -->					<p>sdjfjsdfj</p>
-	            </article>
-	            	        </aside><!-- /#featured -->
-	            
-	
-	        <aside id="featured" class="body">
-	            <article>
-	                <h1 class="entry-title"><a href="../test1.html">test1</a></h1> 
+	                <h1 class="entry-title"><a href="../pelican.html">pelican</a></h1> 
 					<footer class="post-info">
         <abbr class="published" title="2013-01-14T00:00:00">
                 Mon 14 January 2013
         </abbr>
 
 
-</footer><!-- /.post-info -->					<p>this is a test message</p>
+</footer><!-- /.post-info -->					<p>今天把github上的Blog从octopress换成了<a href="http://http://blog.getpelican.com/">pelican</a>
+以前那些文章写得太随意那我就把这篇作为第一篇吧。</p>
+<h1 id="0++++">0.环境介绍</h1>
+<p>OS: centos 6</p>
+<h1 id="1++peclican">1.安装peclican</h1>
+<p>我是在github上下载了<a href="https://github.com/getpelican/pelican.git">pelican</a>的源码来安装的
+    python setup.py install
+我们还需要安装markdown依赖
+    yum install python-markdown</p>
+<h1 id="2settingspy">2.settings.py</h1>
+<div class="codehilite"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="n">import</span> <span class="n">sys</span>
+
+<span class="n">TIMEZONE</span> <span class="p">=</span> <span class="s">&#39;Asia/Shanghai&#39;</span>
+
+<span class="n">DEFAULT_LANG</span> <span class="p">=</span> <span class="s">&#39;zhs&#39;</span>
+
+<span class="n">SITENAME</span> <span class="p">=</span> <span class="s">&quot;mqShen&quot;</span>
+<span class="n">SITESUBTITLE</span> <span class="p">=</span> <span class="s">&quot;simple simple simple&quot;</span>
+<span class="n">AUTHOR</span> <span class="p">=</span> <span class="s">&#39;mqShen&#39;</span>
+
+<span class="n">DISQUS_SITENAME</span> <span class="p">=</span> <span class="s">&#39;mqShenblog&#39;</span>
+<span class="n">GITHUB_URL</span> <span class="p">=</span> <span class="s">&#39;https://github.com/mqshen/mqshen.github.com&#39;</span>
+<span class="n">SITEURL</span> <span class="p">=</span> <span class="s">&#39;http://mqshen.github.com&#39;</span>
+<span class="n">GOOGLE_ANALYTICS</span> <span class="p">=</span> <span class="s">&#39;UA-30756331-1&#39;</span><span class="c">#谷歌站点分析</span>
+<span class="n">TAG_FEED</span>  <span class="p">=</span> <span class="s">&#39;feeds/%s.atom.xml&#39;</span>
+
+<span class="n">DEFAULT_PAGINATION</span> <span class="p">=</span> <span class="mi">4</span><span class="c">#默认每一页有多少篇文章</span>
+
+<span class="n">DEFAULT_CATEGORY</span> <span class="p">=</span><span class="s">&#39;tech&#39;</span>
+<span class="n">OUTPUT_PATH</span> <span class="p">=</span> <span class="s">&#39;output&#39;</span>
+<span class="c">#需要把输出路径从默认的&#39;output&#39;改成根目录(your_id.github.com目录), 因为githubpage需要把index.html上传到repo的master分支的根目录才可以!</span>
+<span class="n">PATH</span> <span class="p">=</span> <span class="s">&#39;posts&#39;</span><span class="c">#这个是指定放置.md/.rst文件的目录</span>
+
+<span class="n">LINKS</span> <span class="p">=</span> <span class="p">(</span>
+         <span class="p">)</span><span class="c">#友情链接~</span>
+
+<span class="n">SOCIAL</span> <span class="p">=</span> <span class="p">(</span>
+          <span class="p">(</span><span class="s">&#39;twitter&#39;</span><span class="p">,</span> <span class="s">&#39;http://twitter.com/mqshen&#39;</span><span class="p">),</span>
+          <span class="p">(</span><span class="s">&#39;github&#39;</span><span class="p">,</span> <span class="s">&#39;https://github.com/mqshen&#39;</span><span class="p">),</span>
+          <span class="p">)</span><span class="c">#社交网络链接</span>
+</pre></div>
+
+
+<h1 id="3+++">3.小脚本</h1>
+<p>为了方便使用我写了个小脚本
+使用方法(需要在settings.py的目录下运行)
+    myBlog newPost postTitle #创建新文章
+    myBlog deploy commitMessage #提交到github上</p>
+<p>脚本代码
+    #!/bin/sh
+    CURRENT_YEAR=<code>date +'%Y'</code>
+    CURRENT_MONTH=<code>date +'%m'</code>
+    CURRENT_DAY=<code>date +'%d'</code>
+    CURRENT_DATE=<code>date +'%Y-%m-%d'</code></p>
+<div class="codehilite"><pre><span class="n">POST_DIRECTORY</span><span class="o">=</span><span class="err">&#39;</span><span class="n">posts</span><span class="err">&#39;</span>
+
+<span class="k">if</span> <span class="p">[</span> <span class="s">&quot;$1&quot;</span> <span class="o">==</span> <span class="s">&quot;newPost&quot;</span> <span class="p">];</span> <span class="n">then</span>
+    <span class="k">if</span> <span class="n">test</span> <span class="o">!</span> <span class="o">-</span><span class="n">d</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span><span class="p">;</span> <span class="n">then</span>
+        <span class="n">echo</span> <span class="err">&#39;</span><span class="n">create</span> <span class="n">directory</span> <span class="err">&#39;$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span>
+        <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span>
+    <span class="n">fi</span>
+    <span class="k">if</span> <span class="n">test</span> <span class="o">-</span><span class="n">f</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span><span class="o">/</span><span class="err">$</span><span class="mf">2.</span><span class="n">md</span><span class="p">;</span> <span class="n">then</span>
+        <span class="n">echo</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span><span class="o">/</span><span class="err">$</span><span class="mf">2.</span><span class="n">md</span> <span class="err">&#39;</span><span class="n">is</span> <span class="n">exists</span><span class="err">&#39;</span>
+        <span class="n">exit</span> <span class="mi">1</span>
+    <span class="n">fi</span> 
+    <span class="n">echo</span> <span class="err">&#39;</span><span class="n">create</span> <span class="n">file</span> <span class="err">&#39;$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span><span class="o">/</span><span class="err">$</span><span class="mf">2.</span><span class="n">md</span>
+    <span class="n">echo</span> <span class="err">&#39;</span><span class="n">Date</span><span class="o">:</span> <span class="err">&#39;$</span><span class="n">CURRENT_DATE</span> <span class="o">&gt;&gt;</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span><span class="o">/</span><span class="err">$</span><span class="mf">2.</span><span class="n">md</span>
+    <span class="n">echo</span> <span class="err">&#39;</span><span class="n">Title</span><span class="o">:</span> <span class="err">&#39;$</span><span class="mi">2</span> <span class="o">&gt;&gt;</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span><span class="o">/</span><span class="err">$</span><span class="mf">2.</span><span class="n">md</span>
+    <span class="n">echo</span> <span class="err">&#39;</span><span class="n">Category</span><span class="o">:</span> <span class="err">&#39;</span> <span class="o">&gt;&gt;</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span><span class="o">/</span><span class="err">$</span><span class="mf">2.</span><span class="n">md</span>
+    <span class="n">echo</span> <span class="err">&#39;</span><span class="n">Tags</span><span class="o">:</span> <span class="err">&#39;</span> <span class="o">&gt;&gt;</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span><span class="o">/</span><span class="err">$</span><span class="mf">2.</span><span class="n">md</span>
+    <span class="n">exit</span> <span class="mi">0</span>
+<span class="n">fi</span>
+
+<span class="k">if</span> <span class="p">[</span> <span class="s">&quot;$1&quot;</span> <span class="o">==</span> <span class="s">&quot;deploy&quot;</span> <span class="p">];</span> <span class="n">then</span>
+    <span class="n">pelican</span> <span class="p">.</span><span class="o">/</span> <span class="o">-</span><span class="n">t</span> <span class="p">.</span><span class="o">/</span> <span class="o">-</span><span class="n">s</span> <span class="n">settings</span><span class="p">.</span><span class="n">py</span> 
+    <span class="n">cd</span> <span class="n">output</span>
+    <span class="n">git</span> <span class="n">add</span> <span class="p">.</span>
+    <span class="n">git</span> <span class="n">commit</span> <span class="o">-</span><span class="n">m</span> <span class="err">$</span><span class="mi">2</span>
+    <span class="n">git</span> <span class="n">push</span>
+    <span class="n">exit</span> <span class="mi">0</span>
+<span class="n">fi</span>
+</pre></div>
 	            </article>
+	            	                <p class="paginator">
+        Page 1 / 1
+    </p>
 	            	        </aside><!-- /#featured -->
 	    		<p class="paginator">
         Page 1 / 1
