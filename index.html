@@ -93,13 +93,12 @@
     myBlog deploy commitMessage #提交到github上</p>
 <p>脚本代码
     #!/bin/sh
-    CURRENT_YEAR=<code>date +'%Y'</code>
-    CURRENT_MONTH=<code>date +'%m'</code>
-    CURRENT_DAY=<code>date +'%d'</code>
-    CURRENT_DATE=<code>date +'%Y-%m-%d'</code></p>
-<div class="codehilite"><pre><span class="n">POST_DIRECTORY</span><span class="o">=</span><span class="err">&#39;</span><span class="n">posts</span><span class="err">&#39;</span>
-
-<span class="k">if</span> <span class="p">[</span> <span class="s">&quot;$1&quot;</span> <span class="o">==</span> <span class="s">&quot;newPost&quot;</span> <span class="p">];</span> <span class="n">then</span>
+    <code>CURRENT_YEAR=``date +'%Y'``
+    CURRENT_MONTH=``date +'%m'``
+    CURRENT_DAY=``date +'%d'``
+    CURRENT_DATE=``date +'%Y-%m-%d'``</code> 
+    POST_DIRECTORY='posts'</p>
+<div class="codehilite"><pre><span class="k">if</span> <span class="p">[</span> <span class="s">&quot;$1&quot;</span> <span class="o">==</span> <span class="s">&quot;newPost&quot;</span> <span class="p">];</span> <span class="n">then</span>
     <span class="k">if</span> <span class="n">test</span> <span class="o">!</span> <span class="o">-</span><span class="n">d</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span><span class="p">;</span> <span class="n">then</span>
         <span class="n">echo</span> <span class="err">&#39;</span><span class="n">create</span> <span class="n">directory</span> <span class="err">&#39;$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span>
         <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="err">$</span><span class="n">POST_DIRECTORY</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_YEAR</span><span class="o">/</span><span class="err">$</span><span class="n">CURRENT_MONTH</span>
