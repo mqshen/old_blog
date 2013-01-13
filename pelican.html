@@ -74,7 +74,6 @@
 
 <span class="n">DEFAULT_CATEGORY</span> <span class="p">=</span><span class="s">&#39;tech&#39;</span>
 <span class="n">OUTPUT_PATH</span> <span class="p">=</span> <span class="s">&#39;output&#39;</span>
-<span class="c">#需要把输出路径从默认的&#39;output&#39;改成根目录(your_id.github.com目录), 因为githubpage需要把index.html上传到repo的master分支的根目录才可以!</span>
 <span class="n">PATH</span> <span class="p">=</span> <span class="s">&#39;posts&#39;</span><span class="c">#这个是指定放置.md/.rst文件的目录</span>
 
 <span class="n">LINKS</span> <span class="p">=</span> <span class="p">(</span>
@@ -125,10 +124,10 @@
 30
 31
 32</pre></div></td><td class="code"><div class="codehilite"><pre><span class="c">#!/bin/sh</span>
-<span class="nv">CURRENT_YEAR</span><span class="o">=</span><span class="sb">``</span>date +<span class="s1">&#39;%Y&#39;</span><span class="sb">``</span>
-<span class="nv">CURRENT_MONTH</span><span class="o">=</span><span class="sb">``</span>date +<span class="s1">&#39;%m&#39;</span><span class="sb">``</span>
-<span class="nv">CURRENT_DAY</span><span class="o">=</span><span class="sb">``</span>date +<span class="s1">&#39;%d&#39;</span><span class="sb">``</span>
-<span class="nv">CURRENT_DATE</span><span class="o">=</span><span class="sb">``</span>date +<span class="s1">&#39;%Y-%m-%d&#39;</span><span class="sb">``</span>
+<span class="nv">CURRENT_YEAR</span><span class="o">=</span><span class="sb">`</span>date +<span class="s1">&#39;%Y&#39;</span><span class="sb">`</span>
+<span class="nv">CURRENT_MONTH</span><span class="o">=</span><span class="sb">`</span>date +<span class="s1">&#39;%m&#39;</span><span class="sb">`</span>
+<span class="nv">CURRENT_DAY</span><span class="o">=</span><span class="sb">`</span>date +<span class="s1">&#39;%d&#39;</span><span class="sb">`</span>
+<span class="nv">CURRENT_DATE</span><span class="o">=</span><span class="sb">`</span>date +<span class="s1">&#39;%Y-%m-%d&#39;</span><span class="sb">`</span>
 <span class="nv">POST_DIRECTORY</span><span class="o">=</span><span class="s1">&#39;posts&#39;</span>
 
 <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;$1&quot;</span> <span class="o">==</span> <span class="s2">&quot;newPost&quot;</span> <span class="o">]</span>; <span class="k">then</span>
