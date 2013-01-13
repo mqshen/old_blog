@@ -21,7 +21,7 @@
 &lt;span class="n"&gt;TIMEZONE&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Asia/Shanghai&amp;#39;&lt;/span&gt;
 
 &lt;span class="n"&gt;DEFAULT_LANG&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;zhs&amp;#39;&lt;/span&gt;
-
+&lt;span class="n"&gt;DEFAULT_DATE_FORMAT&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;%Y %m %d %a&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;SITENAME&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;mqShen&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;SITESUBTITLE&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;simple simple simple&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mqShen&amp;#39;&lt;/span&gt;
