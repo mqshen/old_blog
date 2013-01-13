@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>mqShen</title><link href="http://github.com/" rel="alternate"></link><link href="http://github.com/feeds/about.atom.xml" rel="self"></link><id>http://github.com/</id><updated>2013-01-14T00:00:00+08:00</updated><entry><title>aboutme</title><link href="http://github.com/aboutme.html" rel="alternate"></link><updated>2013-01-14T00:00:00+08:00</updated><author><name>mqShen</name></author><id>tag:github.com,2013-01-14:aboutme.html</id><summary type="html">&lt;p&gt;这里是mqShen的Blog&lt;/p&gt;
 &lt;p&gt;技术背景包括:&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Java C/C++ bash Python
-&lt;/em&gt;Oracle/MySQL RDBMS
-&lt;em&gt;Linux
-&lt;/em&gt;Web Security
-*e-bank&lt;/p&gt;</summary><category term="about"></category></entry></feed>
+&lt;ul&gt;
+&lt;li&gt;Java C/C++ bash Python&lt;/li&gt;
+&lt;li&gt;Oracle/MySQL RDBMS&lt;/li&gt;
+&lt;li&gt;Linux&lt;/li&gt;
+&lt;li&gt;Web Security&lt;/li&gt;
+&lt;li&gt;e-bank&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="about"></category></entry></feed>
