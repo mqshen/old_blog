@@ -85,6 +85,10 @@ ol {
     padding-bottom:5px;
 }
 
+#articles-area {  
+	margin: 0px auto;
+	width: 800px;
+}
 .post-info p{
     margin-bottom: 1px;
 }
@@ -138,7 +142,7 @@ aside, nav, article, figure {
 }
 
 /***** Layout *****/
-.body {clear: both; margin: 0 auto; width: 800px;}
+.body {clear: both; margin: 0 auto; width: 1000px;}
 img.right, figure.right {float: right; margin: 0 0 2em 2em;}
 img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 
