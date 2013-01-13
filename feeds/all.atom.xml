@@ -48,36 +48,69 @@
 使用方法(需要在settings.py的目录下运行)
     myBlog newPost postTitle #创建新文章
     myBlog deploy commitMessage #提交到github上&lt;/p&gt;
-&lt;p&gt;脚本代码
-    #!/bin/sh
-    &lt;code&gt;CURRENT_YEAR=``date +'%Y'``
-    CURRENT_MONTH=``date +'%m'``
-    CURRENT_DAY=``date +'%d'``
-    CURRENT_DATE=``date +'%Y-%m-%d'``&lt;/code&gt; 
-    POST_DIRECTORY='posts'&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;newPost&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt;
-        &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="n"&gt;directory&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;
-        &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;
-    &lt;span class="n"&gt;fi&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;test&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt;
-        &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;exists&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
-        &lt;span class="n"&gt;exit&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-    &lt;span class="n"&gt;fi&lt;/span&gt; 
-    &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;create&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
-    &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Date&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_DATE&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
-    &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Title&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;$&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
-    &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Category&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
-    &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;Tags&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mf"&gt;2.&lt;/span&gt;&lt;span class="n"&gt;md&lt;/span&gt;
-    &lt;span class="n"&gt;exit&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="n"&gt;fi&lt;/span&gt;
+&lt;p&gt;脚本代码&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="nv"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;``&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%Y&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;``&lt;/span&gt;
+&lt;span class="nv"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;``&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%m&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;``&lt;/span&gt;
+&lt;span class="nv"&gt;CURRENT_DAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;``&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%d&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;``&lt;/span&gt;
+&lt;span class="nv"&gt;CURRENT_DATE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;``&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%Y-%m-%d&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;``&lt;/span&gt;
+&lt;span class="nv"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;posts&amp;#39;&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;deploy&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt;
-    &lt;span class="n"&gt;pelican&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;settings&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; 
-    &lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;output&lt;/span&gt;
-    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;add&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;
-    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;commit&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
-    &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt;
-    &lt;span class="n"&gt;exit&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="n"&gt;fi&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</summary><category term="peclican"></category></entry></feed>
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;newPost&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="k"&gt;    if &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt; ! -d &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="k"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;create directory &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;
+        mkdir -p &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;
+    &lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="k"&gt;    if &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt; -f &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="k"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md &lt;span class="s1"&gt;&amp;#39;is exists&amp;#39;&lt;/span&gt;
+        &lt;span class="nb"&gt;exit &lt;/span&gt;1
+    &lt;span class="k"&gt;fi &lt;/span&gt;
+&lt;span class="k"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;create file &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Date: &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$CURRENT_DATE&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Title: &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Category: &amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Tags: &amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;exit &lt;/span&gt;0
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;deploy&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="k"&gt;    &lt;/span&gt;pelican ./ -t ./ -s settings.py 
+    &lt;span class="nb"&gt;cd &lt;/span&gt;output
+    git add .
+    git commit -m &lt;span class="nv"&gt;$2&lt;/span&gt;
+    git push
+    &lt;span class="nb"&gt;exit &lt;/span&gt;0
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="peclican"></category></entry></feed>
