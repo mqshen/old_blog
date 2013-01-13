@@ -49,7 +49,6 @@
     myBlog newPost postTitle #创建新文章
     myBlog deploy commitMessage #提交到github上&lt;/p&gt;
 &lt;p&gt;脚本代码
-    #!/bin/sh
     CURRENT_YEAR=&lt;code&gt;date +'%Y'&lt;/code&gt;
     CURRENT_MONTH=&lt;code&gt;date +'%m'&lt;/code&gt;
     CURRENT_DAY=&lt;code&gt;date +'%d'&lt;/code&gt;
