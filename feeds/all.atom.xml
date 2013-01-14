@@ -304,6 +304,9 @@ endfunction
 &lt;span class="n"&gt;SITESUBTITLE&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;simple simple simple&amp;quot;&lt;/span&gt;
 &lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mqShen&amp;#39;&lt;/span&gt;
 
+&lt;span class="n"&gt;ARTICLE_URL&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts/{date:%Y}/{date:%m}/{slug}.html&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;ARTICLE_SAVE_AS&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts/{date:%Y}/{date:%m}/{slug}.html&amp;#39;&lt;/span&gt;
+
 &lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mqShenblog&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;GITHUB_URL&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://github.com/mqshen/mqshen.github.com&amp;#39;&lt;/span&gt;
 &lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://mqshen.github.com&amp;#39;&lt;/span&gt;
