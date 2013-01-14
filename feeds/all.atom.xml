@@ -1,124 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>mqShen</title><link href="http://github.com/" rel="alternate"></link><link href="http://github.com/feeds/all.atom.xml" rel="self"></link><id>http://github.com/</id><updated>2013-01-14T00:00:00+08:00</updated><entry><title>pelican</title><link href="http://github.com/pelican.html" rel="alternate"></link><updated>2013-01-14T00:00:00+08:00</updated><author><name>mqShen</name></author><id>tag:github.com,2013-01-14:pelican.html</id><summary type="html">&lt;p&gt;今天把github上的Blog从octopress换成了&lt;a href="http://http://blog.getpelican.com/"&gt;pelican&lt;/a&gt;
-以前那些文章写得太随意那我就把这篇作为第一篇吧。&lt;/p&gt;
-&lt;h1 id="0++++"&gt;0.环境介绍&lt;/h1&gt;
-&lt;p&gt;OS: centos 6&lt;/p&gt;
-&lt;h1 id="1++peclican"&gt;1.安装peclican&lt;/h1&gt;
-&lt;p&gt;我是在github上下载了&lt;a href="https://github.com/getpelican/pelican.git"&gt;pelican&lt;/a&gt;的源码来安装的&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;我们还需要安装markdown依赖&lt;/p&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;yum&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;markdown&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h1 id="2settingspy"&gt;2.settings.py&lt;/h1&gt;
-&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
-&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;
-
-&lt;span class="n"&gt;TIMEZONE&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Asia/Shanghai&amp;#39;&lt;/span&gt;
-
-&lt;span class="n"&gt;DEFAULT_LANG&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;zhs&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;DEFAULT_DATE_FORMAT&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;%Y %m %d %a&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;SITENAME&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;mqShen&amp;quot;&lt;/span&gt;
-&lt;span class="n"&gt;SITESUBTITLE&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;simple simple simple&amp;quot;&lt;/span&gt;
-&lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mqShen&amp;#39;&lt;/span&gt;
-
-&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mqShenblog&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;GITHUB_URL&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://github.com/mqshen/mqshen.github.com&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://mqshen.github.com&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;GOOGLE_ANALYTICS&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;UA-30756331-1&amp;#39;&lt;/span&gt;&lt;span class="c"&gt;#谷歌站点分析&lt;/span&gt;
-&lt;span class="n"&gt;TAG_FEED&lt;/span&gt;  &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/%s.atom.xml&amp;#39;&lt;/span&gt;
-
-&lt;span class="n"&gt;DEFAULT_PAGINATION&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="c"&gt;#默认每一页有多少篇文章&lt;/span&gt;
-
-&lt;span class="n"&gt;DEFAULT_CATEGORY&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tech&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;OUTPUT_PATH&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;output&amp;#39;&lt;/span&gt;
-&lt;span class="n"&gt;PATH&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts&amp;#39;&lt;/span&gt;&lt;span class="c"&gt;#这个是指定放置.md/.rst文件的目录&lt;/span&gt;
-
-&lt;span class="n"&gt;LINKS&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
-         &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;#友情链接~&lt;/span&gt;
-
-&lt;span class="n"&gt;SOCIAL&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
-          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;twitter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://twitter.com/mqshen&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;github&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://github.com/mqshen&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
-          &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;#社交网络链接&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;h1 id="3+++"&gt;3.小脚本&lt;/h1&gt;
-&lt;p&gt;为了方便使用我写了个小脚本
-使用方法(需要在settings.py的目录下运行)
-    myBlog newPost postTitle #创建新文章
-    myBlog deploy commitMessage #提交到github上&lt;/p&gt;
-&lt;p&gt;脚本代码&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
-&lt;span class="nv"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%Y&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;span class="nv"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%m&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;span class="nv"&gt;CURRENT_DAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%d&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;span class="nv"&gt;CURRENT_DATE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%Y-%m-%d&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
-&lt;span class="nv"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;posts&amp;#39;&lt;/span&gt;
-
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;newPost&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
-&lt;span class="k"&gt;    if &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt; ! -d &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
-&lt;span class="k"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;create directory &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;
-        mkdir -p &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;
-    &lt;span class="k"&gt;fi&lt;/span&gt;
-&lt;span class="k"&gt;    if &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt; -f &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md; &lt;span class="k"&gt;then&lt;/span&gt;
-&lt;span class="k"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md &lt;span class="s1"&gt;&amp;#39;is exists&amp;#39;&lt;/span&gt;
-        &lt;span class="nb"&gt;exit &lt;/span&gt;1
-    &lt;span class="k"&gt;fi &lt;/span&gt;
-&lt;span class="k"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;create file &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Date: &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$CURRENT_DATE&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Title: &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Category: &amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Tags: &amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
-    &lt;span class="nb"&gt;exit &lt;/span&gt;0
-&lt;span class="k"&gt;fi&lt;/span&gt;
-
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;deploy&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
-&lt;span class="k"&gt;    &lt;/span&gt;pelican ./ -t ./ -s settings.py 
-    &lt;span class="nb"&gt;cd &lt;/span&gt;output
-    git add .
-    git commit -m &lt;span class="nv"&gt;$2&lt;/span&gt;
-    git push
-    &lt;span class="nb"&gt;exit &lt;/span&gt;0
-&lt;span class="k"&gt;fi&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="peclican"></category></entry><entry><title>vim</title><link href="http://github.com/vim.html" rel="alternate"></link><updated>2013-01-14T00:00:00+08:00</updated><author><name>mqShen</name></author><id>tag:github.com,2013-01-14:vim.html</id><summary type="html">&lt;p&gt;vim配置备忘录(1)&lt;br /&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>mqShen</title><link href="http://github.com/" rel="alternate"></link><link href="http://github.com/feeds/all.atom.xml" rel="self"></link><id>http://github.com/</id><updated>2013-01-14T00:00:00+08:00</updated><entry><title>vim</title><link href="http://github.com/vim.html" rel="alternate"></link><updated>2013-01-14T00:00:00+08:00</updated><author><name>mqShen</name></author><id>tag:github.com,2013-01-14:vim.html</id><summary type="html">&lt;p&gt;vim配置备忘录(1)&lt;br /&gt;
 相关插件:
 &lt;a href="http://www.vim.org/scripts/script.php?script_id=1581"&gt;lookupfile&lt;/a&gt;
 &lt;a href="http://www.vim.org/scripts/script.php?script_id=95"&gt;winmanager&lt;/a&gt;&lt;br /&gt;
@@ -396,4 +277,123 @@ endfunction
 
 
 &lt;p&gt;插件备份
-&lt;a href="files/vim.tar"&gt;vim.tar&lt;/a&gt;&lt;/p&gt;</summary><category term="vim"></category></entry></feed>
+&lt;a href="files/vim.tar"&gt;vim.tar&lt;/a&gt;&lt;/p&gt;</summary><category term="vim"></category></entry><entry><title>pelican</title><link href="http://github.com/pelican.html" rel="alternate"></link><updated>2013-01-14T00:00:00+08:00</updated><author><name>mqShen</name></author><id>tag:github.com,2013-01-14:pelican.html</id><summary type="html">&lt;p&gt;今天把github上的Blog从octopress换成了&lt;a href="http://http://blog.getpelican.com/"&gt;pelican&lt;/a&gt;
+以前那些文章写得太随意那我就把这篇作为第一篇吧。&lt;/p&gt;
+&lt;h1 id="0++++"&gt;0.环境介绍&lt;/h1&gt;
+&lt;p&gt;OS: centos 6&lt;/p&gt;
+&lt;h1 id="1++peclican"&gt;1.安装peclican&lt;/h1&gt;
+&lt;p&gt;我是在github上下载了&lt;a href="https://github.com/getpelican/pelican.git"&gt;pelican&lt;/a&gt;的源码来安装的&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;python&lt;/span&gt; &lt;span class="n"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;py&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;我们还需要安装markdown依赖&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;yum&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;python&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;markdown&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id="2settingspy"&gt;2.settings.py&lt;/h1&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;# -*- coding: utf-8 -*-&lt;/span&gt;
+&lt;span class="n"&gt;import&lt;/span&gt; &lt;span class="n"&gt;sys&lt;/span&gt;
+
+&lt;span class="n"&gt;TIMEZONE&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;Asia/Shanghai&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;DEFAULT_LANG&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;zhs&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;DEFAULT_DATE_FORMAT&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;%Y %m %d %a&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;SITENAME&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;mqShen&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;SITESUBTITLE&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;simple simple simple&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;AUTHOR&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mqShen&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;DISQUS_SITENAME&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;mqShenblog&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;GITHUB_URL&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://github.com/mqshen/mqshen.github.com&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;SITEURL&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://mqshen.github.com&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;GOOGLE_ANALYTICS&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;UA-30756331-1&amp;#39;&lt;/span&gt;&lt;span class="c"&gt;#谷歌站点分析&lt;/span&gt;
+&lt;span class="n"&gt;TAG_FEED&lt;/span&gt;  &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;feeds/%s.atom.xml&amp;#39;&lt;/span&gt;
+
+&lt;span class="n"&gt;DEFAULT_PAGINATION&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="c"&gt;#默认每一页有多少篇文章&lt;/span&gt;
+
+&lt;span class="n"&gt;DEFAULT_CATEGORY&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;tech&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;OUTPUT_PATH&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;output&amp;#39;&lt;/span&gt;
+&lt;span class="n"&gt;PATH&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;posts&amp;#39;&lt;/span&gt;&lt;span class="c"&gt;#这个是指定放置.md/.rst文件的目录&lt;/span&gt;
+
+&lt;span class="n"&gt;LINKS&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+         &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;#友情链接~&lt;/span&gt;
+
+&lt;span class="n"&gt;SOCIAL&lt;/span&gt; &lt;span class="p"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;twitter&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;http://twitter.com/mqshen&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+          &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;github&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;#39;https://github.com/mqshen&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;
+          &lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="c"&gt;#社交网络链接&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h1 id="3+++"&gt;3.小脚本&lt;/h1&gt;
+&lt;p&gt;为了方便使用我写了个小脚本
+使用方法(需要在settings.py的目录下运行)
+    myBlog newPost postTitle #创建新文章
+    myBlog deploy commitMessage #提交到github上&lt;/p&gt;
+&lt;p&gt;脚本代码&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="c"&gt;#!/bin/sh&lt;/span&gt;
+&lt;span class="nv"&gt;CURRENT_YEAR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%Y&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="nv"&gt;CURRENT_MONTH&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%m&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="nv"&gt;CURRENT_DAY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%d&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="nv"&gt;CURRENT_DATE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;date +&lt;span class="s1"&gt;&amp;#39;%Y-%m-%d&amp;#39;&lt;/span&gt;&lt;span class="sb"&gt;`&lt;/span&gt;
+&lt;span class="nv"&gt;POST_DIRECTORY&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;posts&amp;#39;&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;newPost&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="k"&gt;    if &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt; ! -d &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="k"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;create directory &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;
+        mkdir -p &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;
+    &lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;span class="k"&gt;    if &lt;/span&gt;&lt;span class="nb"&gt;test&lt;/span&gt; -f &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="k"&gt;        &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md &lt;span class="s1"&gt;&amp;#39;is exists&amp;#39;&lt;/span&gt;
+        &lt;span class="nb"&gt;exit &lt;/span&gt;1
+    &lt;span class="k"&gt;fi &lt;/span&gt;
+&lt;span class="k"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;create file &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Date: &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$CURRENT_DATE&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Title: &amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Category: &amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;Tags: &amp;#39;&lt;/span&gt; &amp;gt;&amp;gt; &lt;span class="nv"&gt;$POST_DIRECTORY&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_YEAR&lt;/span&gt;/&lt;span class="nv"&gt;$CURRENT_MONTH&lt;/span&gt;/&lt;span class="nv"&gt;$2&lt;/span&gt;.md
+    &lt;span class="nb"&gt;exit &lt;/span&gt;0
+&lt;span class="k"&gt;fi&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;deploy&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;; &lt;span class="k"&gt;then&lt;/span&gt;
+&lt;span class="k"&gt;    &lt;/span&gt;pelican ./ -t ./ -s settings.py 
+    &lt;span class="nb"&gt;cd &lt;/span&gt;output
+    git add .
+    git commit -m &lt;span class="nv"&gt;$2&lt;/span&gt;
+    git push
+    &lt;span class="nb"&gt;exit &lt;/span&gt;0
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="peclican"></category></entry></feed>
