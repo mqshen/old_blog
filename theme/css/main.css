@@ -85,11 +85,11 @@ ol {
 }
 #page-content {  
 	margin: 0px auto;
-	width: 1000px;
+	width: 960px;
 }
 
 #articles-area {  
-	width: 750px;
+	width: 680px;
     margin-top: 27px;
 	float: left;
 }
@@ -146,7 +146,7 @@ aside, nav, article, figure {
 }
 
 /***** Layout *****/
-.body {clear: both; margin: 0 auto; width: 1000px;}
+.body {clear: both; margin: 0 auto; width: 960px;}
 img.right, figure.right {float: right; margin: 0 0 2em 2em;}
 img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 
