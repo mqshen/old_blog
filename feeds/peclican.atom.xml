@@ -53,9 +53,13 @@
 
 &lt;h1 id="3+++"&gt;3.小脚本&lt;/h1&gt;
 &lt;p&gt;为了方便使用我写了个小脚本
-使用方法(需要在settings.py的目录下运行)
-    myBlog newPost postTitle #创建新文章
-    myBlog deploy commitMessage #提交到github上&lt;/p&gt;
+使用方法(需要在settings.py的目录下运行)&lt;br /&gt;
+&lt;/p&gt;
+&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="n"&gt;myBlog&lt;/span&gt; &lt;span class="n"&gt;newPost&lt;/span&gt; &lt;span class="n"&gt;postTitle&lt;/span&gt; &lt;span class="err"&gt;#创建新文章&lt;/span&gt;  
+&lt;span class="n"&gt;myBlog&lt;/span&gt; &lt;span class="n"&gt;deploy&lt;/span&gt; &lt;span class="n"&gt;commitMessage&lt;/span&gt; &lt;span class="err"&gt;#提交到&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="err"&gt;上&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;p&gt;脚本代码&lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
  2
