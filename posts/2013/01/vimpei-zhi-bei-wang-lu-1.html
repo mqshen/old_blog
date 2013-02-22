@@ -48,226 +48,228 @@
 
 
 </footer><!-- /.post-info -->		      <p>相关插件:
-<a href="http://www.vim.org/scripts/script.php?script_id=1581">lookupfile</a>文件查找
-<a href="http://www.vim.org/scripts/script.php?script_id=95">winmanager</a>窗口管理 
-<a href="http://www.vim.org/scripts/script.php?script_id=3150">session</a>保存当前工作环境
-<a href="http://www.vim.org/scripts/script.php?script_id=1658">NERDTree</a>文件浏览
-<a href="http://www.vim.org/scripts/script.php?script_id=273">TagList</a>标签管理</p>
-<p>vimrc配置:
-    "启用filetype插件
-    filetype plugin on
-    filetype indent on
-    syntax on</p>
-<div class="codehilite"><pre><span class="s2">&quot;fast saving</span>
-<span class="s2">nmap &lt;leader&gt;w :w!&lt;cr&gt;</span>
+<a href="http://www.vim.org/scripts/script.php?script_id=1581">lookupfile</a>文件查找<br />
+<a href="http://www.vim.org/scripts/script.php?script_id=95">winmanager</a>窗口管理 <br />
+<a href="http://www.vim.org/scripts/script.php?script_id=3150">session</a>保存当前工作环境<br />
+<a href="http://www.vim.org/scripts/script.php?script_id=1658">NERDTree</a>文件浏览<br />
+<a href="http://www.vim.org/scripts/script.php?script_id=273">TagList</a>标签管理<br />
+</p>
+<p>vimrc配置:</p>
+<div class="codehilite"><pre><span class="s2">&quot;启用filetype插件</span>
+<span class="s2">filetype plugin on</span>
+<span class="s2">filetype indent on</span>
+<span class="s2">syntax on</span>
 
-<span class="s2">&quot;</span><span class="nx">fast</span> <span class="nx">editing</span> <span class="nx">of</span> <span class="nx">the</span> <span class="bp">.</span><span class="nx">vimrc</span>
-<span class="kt">map</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">e</span> <span class="p">:</span><span class="nx">e</span><span class="o">!</span> <span class="err">~</span><span class="p">/</span><span class="nx">.vim_runtime</span><span class="p">/</span><span class="nx">vimrc</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+<span class="s2">&quot;</span><span class="nx">fast</span> <span class="nx">saving</span>
+<span class="nx">nmap</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">w</span> <span class="p">:</span><span class="nx">w</span><span class="o">!&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
 
-<span class="nb">set</span> <span class="nx">ruler</span>                       <span class="s2">&quot;一直显示当前位置</span>
-<span class="s2">set ignorecase                  &quot;</span><span class="err">搜索忽略大小写</span>
-<span class="nb">set</span> <span class="nx">smartcase</span>
+<span class="s2">&quot;fast editing of the .vimrc</span>
+<span class="s2">map &lt;leader&gt;e :e! ~/.vim_runtime/vimrc&lt;cr&gt;</span>
 
-<span class="nb">set</span> <span class="nx">magic</span>                       <span class="s2">&quot;为正则表达式打开magic</span>
-<span class="s2">&quot;</span><span class="nx">platform</span>
-<span class="nx">function</span><span class="o">!</span> <span class="nx">MySys</span><span class="p">()</span>
-    <span class="k">return</span> <span class="s2">&quot;linux&quot;</span>
-<span class="nx">endfunction</span>
-<span class="s2">&quot; 根据系统设置字体</span>
-<span class="s2">if MySys() == &quot;</span><span class="nx">mac</span><span class="s2">&quot;</span>
-<span class="s2">    set gfn=Menlo:h14</span>
-<span class="s2">    set shell=/bin/bash</span>
-<span class="s2">elseif MySys() == &quot;</span><span class="nx">windows</span><span class="s2">&quot;</span>
-<span class="s2">    set gfn=Bitstream\ Vera\ Sans\ Mono:h10</span>
-<span class="s2">elseif MySys() == &quot;</span><span class="nx">linux</span><span class="s2">&quot;</span>
-<span class="s2">    set gfn=Monospace\ 10</span>
-<span class="s2">    set guifontwide=Microsoft\ YaHei\ 10</span>
-<span class="s2">    set shell=/bin/bash</span>
-<span class="s2">endif</span>
+<span class="s2">set ruler                       &quot;</span><span class="err">一直显示当前位置</span>
+<span class="nb">set</span> <span class="nb">ignorecase</span>                  <span class="s2">&quot;搜索忽略大小写</span>
+<span class="s2">set smartcase</span>
 
-<span class="s2">if has(&quot;</span><span class="nx">gui_running</span><span class="s2">&quot;)</span>
-<span class="s2">    set guioptions-=T           &quot;</span> <span class="err">隐藏工具栏</span>  
-    <span class="nb">set</span> <span class="nx">guioptions</span><span class="o">-=</span><span class="nx">m</span>           <span class="s2">&quot; 隐藏菜单栏</span>
-<span class="s2">    set t_Co=256</span>
-<span class="s2">    set background=dark</span>
-<span class="s2">    colorscheme peaksea                                                                                                                                    </span>
-<span class="s2">    set nonu</span>
-<span class="s2">else</span>
-<span class="s2">    colorscheme zellner</span>
-<span class="s2">    set background=dark</span>
-<span class="s2">    set nonu</span>
-<span class="s2">endif</span>
-
-<span class="s2">if has(&#39;win32&#39;)</span>
-<span class="s2">    au GUIEnter * simalt ~x</span>
-<span class="s2">else</span>
-<span class="s2">    au GUIEnter * call MaximizeWindow()</span>
-<span class="s2">endif</span>
-
-<span class="s2">function! MaximizeWindow()</span>
-<span class="s2">    silent !wmctrl -r :ACTIVE: -b add,maximized_vert,maximized_horz</span>
+<span class="s2">set magic                       &quot;</span><span class="err">为正则表达式打开</span><span class="nx">magic</span>
+<span class="s2">&quot;platform</span>
+<span class="s2">function! MySys()</span>
+<span class="s2">    return &quot;</span><span class="nx">linux</span><span class="s2">&quot;</span>
 <span class="s2">endfunction</span>
+<span class="s2">&quot;</span> <span class="err">根据系统设置字体</span>
+<span class="k">if</span> <span class="nx">MySys</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;mac&quot;</span>
+    <span class="nb">set</span> <span class="n">gfn</span><span class="o">=</span><span class="nx">Menlo</span><span class="p">:</span><span class="nx">h14</span>
+    <span class="nb">set</span> <span class="n">shell</span><span class="o">=</span><span class="p">/</span><span class="nx">bin</span><span class="p">/</span><span class="nx">bash</span>
+<span class="nx">elseif</span> <span class="nx">MySys</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;windows&quot;</span>
+    <span class="nb">set</span> <span class="n">gfn</span><span class="o">=</span><span class="nx">Bitstream</span><span class="o">\</span> <span class="nx">Vera</span><span class="o">\</span> <span class="nx">Sans</span><span class="o">\</span> <span class="nx">Mono</span><span class="p">:</span><span class="nx">h10</span>
+<span class="nx">elseif</span> <span class="nx">MySys</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;linux&quot;</span>
+    <span class="nb">set</span> <span class="n">gfn</span><span class="o">=</span><span class="nx">Monospace</span><span class="o">\</span> <span class="mi">10</span>
+    <span class="nb">set</span> <span class="n">guifontwide</span><span class="o">=</span><span class="nx">Microsoft</span><span class="o">\</span> <span class="nx">YaHei</span><span class="o">\</span> <span class="mi">10</span>
+    <span class="nb">set</span> <span class="n">shell</span><span class="o">=</span><span class="p">/</span><span class="nx">bin</span><span class="p">/</span><span class="nx">bash</span>
+<span class="nx">endif</span>
 
-<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>   
-<span class="s2">&quot; GVIM自身的设置  </span>
-<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;  </span>
-<span class="s2">language messages zh_CN.utf-8   &quot;</span> <span class="err">解决</span><span class="nx">consle</span><span class="err">输出乱码</span>  
-<span class="nb">set</span> <span class="n">encoding</span><span class="o">=</span><span class="nx">utf8</span>
-<span class="nb">set</span> <span class="n">ffs</span><span class="o">=</span><span class="nx">unix</span><span class="p">,</span><span class="nx">dos</span><span class="p">,</span><span class="nx">mac</span>            <span class="s2">&quot; 默认文件格式</span>
-<span class="s2">set noerrorbells                &quot;</span> <span class="err">关闭错误提示音</span>  
-<span class="nb">set</span> <span class="nx">nobackup</span>                    <span class="s2">&quot; 不要备份文件  </span>
-<span class="s2">set linespace=0                 &quot;</span> <span class="err">字符间插入的像素行数目</span>  
-<span class="nb">set</span> <span class="n">shortmess</span><span class="o">=</span><span class="nx">atI</span>               <span class="s2">&quot; 启动的时候不显示那个援助索马里儿童的提示  </span>
-<span class="s2">set novisualbell                &quot;</span> <span class="err">不要闪烁</span>   
-<span class="nb">set</span> <span class="n">scrolloff</span><span class="o">=</span><span class="mi">3</span>                 <span class="s2">&quot; 光标移动到buffer的顶部和底部时保持3行距离</span>
+<span class="k">if</span> <span class="nx">has</span><span class="p">(</span><span class="s2">&quot;gui_running&quot;</span><span class="p">)</span>
+    <span class="nb">set</span> <span class="nx">guioptions</span><span class="o">-=</span><span class="nb">T</span>           <span class="s2">&quot; 隐藏工具栏  </span>
+<span class="s2">    set guioptions-=m           &quot;</span> <span class="err">隐藏菜单栏</span>
+    <span class="nb">set</span> <span class="n">t_Co</span><span class="o">=</span><span class="mi">256</span>
+    <span class="nb">set</span> <span class="n">background</span><span class="o">=</span><span class="nx">dark</span>
+    <span class="nx">colorscheme</span> <span class="nx">peaksea</span>                                                                                                                                    
+    <span class="nb">set</span> <span class="nx">nonu</span>
+<span class="k">else</span>
+    <span class="nx">colorscheme</span> <span class="nx">zellner</span>
+    <span class="nb">set</span> <span class="n">background</span><span class="o">=</span><span class="nx">dark</span>
+    <span class="nb">set</span> <span class="nx">nonu</span>
+<span class="nx">endif</span>
+
+<span class="k">if</span> <span class="nx">has</span><span class="p">(</span><span class="s1">&#39;win32&#39;</span><span class="p">)</span>
+    <span class="nx">au</span> <span class="nx">GUIEnter</span> <span class="o">*</span> <span class="nx">simalt</span> <span class="err">~</span><span class="nx">x</span>
+<span class="k">else</span>
+    <span class="nx">au</span> <span class="nx">GUIEnter</span> <span class="o">*</span> <span class="nb">call</span> <span class="nx">MaximizeWindow</span><span class="p">()</span>
+<span class="nx">endif</span>
+
+<span class="nx">function</span><span class="o">!</span> <span class="nx">MaximizeWindow</span><span class="p">()</span>
+    <span class="nx">silent</span> <span class="o">!</span><span class="nx">wmctrl</span> <span class="na">-r</span> <span class="p">:</span><span class="nx">ACTIVE</span><span class="p">:</span> <span class="na">-b</span> <span class="nb">add</span><span class="p">,</span><span class="nx">maximized_vert</span><span class="p">,</span><span class="nx">maximized_horz</span>
+<span class="nx">endfunction</span>
+
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;   </span>
+<span class="s2">&quot;</span> <span class="nx">GVIM</span><span class="err">自身的设置</span>  
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>  
+<span class="nb">language</span> <span class="nx">messages</span> <span class="nx">zh_CN.utf</span><span class="o">-</span><span class="mi">8</span>   <span class="s2">&quot; 解决consle输出乱码  </span>
+<span class="s2">set encoding=utf8</span>
+<span class="s2">set ffs=unix,dos,mac            &quot;</span> <span class="err">默认文件格式</span>
+<span class="nb">set</span> <span class="nx">noerrorbells</span>                <span class="s2">&quot; 关闭错误提示音  </span>
+<span class="s2">set nobackup                    &quot;</span> <span class="err">不要备份文件</span>  
+<span class="nb">set</span> <span class="n">linespace</span><span class="o">=</span><span class="mi">0</span>                 <span class="s2">&quot; 字符间插入的像素行数目  </span>
+<span class="s2">set shortmess=atI               &quot;</span> <span class="err">启动的时候不显示那个援助索马里儿童的提示</span>  
+<span class="nb">set</span> <span class="nx">novisualbell</span>                <span class="s2">&quot; 不要闪烁   </span>
+<span class="s2">set scrolloff=3                 &quot;</span> <span class="err">光标移动到</span><span class="nx">buffer</span><span class="err">的顶部和底部时保持</span><span class="mi">3</span><span class="err">行距离</span>
 
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">&quot;</span> <span class="err">目前不想用鼠标</span>
-<span class="nb">set</span> <span class="n">mouse</span><span class="o">=</span><span class="nx">a</span>                 <span class="s2">&quot; 可以在buffer的任何地方 -&gt;  </span>
-<span class="s2">&quot;</span><span class="nb">set</span> <span class="n">selection</span><span class="o">=</span><span class="nx">exclusive</span>         <span class="s2">&quot; 使用鼠标（类似office中 -&gt;  </span>
-<span class="s2">&quot;</span><span class="nb">set</span> <span class="n">selectmode</span><span class="o">=</span><span class="nx">mouse</span><span class="p">,</span><span class="nb">key</span>        <span class="s2">&quot; 在工作区双击鼠标定位）  </span>
-<span class="s2">set mousemodel=popup</span>
+<span class="s2">&quot; 目前不想用鼠标</span>
+<span class="s2">set mouse=a                 &quot;</span> <span class="err">可以在</span><span class="nx">buffer</span><span class="err">的任何地方</span> <span class="o">-&gt;</span>  
+<span class="s2">&quot;set selection=exclusive         &quot;</span> <span class="err">使用鼠标（类似</span><span class="nx">office</span><span class="err">中</span> <span class="o">-&gt;</span>  
+<span class="s2">&quot;set selectmode=mouse,key        &quot;</span> <span class="err">在工作区双击鼠标定位）</span>  
+<span class="nb">set</span> <span class="n">mousemodel</span><span class="o">=</span><span class="nx">popup</span>
 
-<span class="s2">set cursorline                  &quot;</span> <span class="err">突出显示当前行</span>  
-<span class="nb">set</span> <span class="nx">nu</span><span class="o">!</span>                         <span class="s2">&quot; 显示行号  </span>
-<span class="s2">set whichwrap+=&lt;,&gt;,h,l          &quot;</span> <span class="err">允许</span><span class="nx">backspace</span><span class="err">和光标键跨越行边界</span>   
-<span class="nb">set</span> <span class="n">completeopt</span><span class="o">=</span><span class="nx">longest</span><span class="p">,</span><span class="nx">menu</span>    <span class="s2">&quot;按Ctrl+N进行代码补全</span>
+<span class="nb">set</span> <span class="nx">cursorline</span>                  <span class="s2">&quot; 突出显示当前行  </span>
+<span class="s2">set nu!                         &quot;</span> <span class="err">显示行号</span>  
+<span class="nb">set</span> <span class="nx">whichwrap</span><span class="o">+=&lt;</span><span class="p">,</span><span class="o">&gt;</span><span class="p">,</span><span class="nx">h</span><span class="p">,</span><span class="nx">l</span>          <span class="s2">&quot; 允许backspace和光标键跨越行边界   </span>
+<span class="s2">set completeopt=longest,menu    &quot;</span><span class="err">按</span><span class="nx">Ctrl</span><span class="o">+</span><span class="nb">N</span><span class="err">进行代码补全</span>
 
-<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>   
-<span class="s2">&quot; 文本格式和排版   </span>
-<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;   </span>
-<span class="s2">&quot;</span><span class="nb">set</span> <span class="nb">list</span>                        <span class="s2">&quot; 显示Tab符，-&gt;  </span>
-<span class="s2">&quot;</span><span class="nb">set</span> <span class="n">listchars</span><span class="o">=</span><span class="nx">tab</span><span class="p">:</span><span class="o">\|\</span> <span class="p">,</span>         <span class="s2">&quot; 使用一高亮竖线代替  </span>
-<span class="s2">set tabstop=4               &quot;</span> <span class="err">制表符为</span><span class="mi">4</span>  
-<span class="nb">set</span> <span class="nx">autoindent</span>              <span class="s2">&quot; 自动对齐（继承前一行的缩进方式）  </span>
-<span class="s2">set smartindent             &quot;</span> <span class="err">智能自动缩进（以</span><span class="nx">c</span><span class="err">程序的方式）</span>  
-<span class="nb">set</span> <span class="n">softtabstop</span><span class="o">=</span><span class="mi">4</span>   
-<span class="nb">set</span> <span class="n">shiftwidth</span><span class="o">=</span><span class="mi">4</span>            <span class="s2">&quot; 换行时行间交错使用4个空格  </span>
-<span class="s2">set expandtab           &quot;</span> <span class="err">不要用空格代替制表符</span>  
-<span class="nb">set</span> <span class="nx">cindent</span>                 <span class="s2">&quot; 使用C样式的缩进  </span>
-<span class="s2">set smarttab                &quot;</span> <span class="err">在行和段开始处使用制表符</span>  
-<span class="s2">&quot;set nowrap                 &quot;</span> <span class="err">不要换行显示一行</span>
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;   </span>
+<span class="s2">&quot;</span> <span class="err">文本格式和排版</span>   
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>   
+<span class="s2">&quot;set list                        &quot;</span> <span class="err">显示</span><span class="nx">Tab</span><span class="err">符，</span><span class="o">-&gt;</span>  
+<span class="s2">&quot;set listchars=tab:\|\ ,         &quot;</span> <span class="err">使用一高亮竖线代替</span>  
+<span class="nb">set</span> <span class="n">tabstop</span><span class="o">=</span><span class="mi">4</span>               <span class="s2">&quot; 制表符为4  </span>
+<span class="s2">set autoindent              &quot;</span> <span class="err">自动对齐（继承前一行的缩进方式）</span>  
+<span class="nb">set</span> <span class="nx">smartindent</span>             <span class="s2">&quot; 智能自动缩进（以c程序的方式）  </span>
+<span class="s2">set softtabstop=4   </span>
+<span class="s2">set shiftwidth=4            &quot;</span> <span class="err">换行时行间交错使用</span><span class="mi">4</span><span class="err">个空格</span>  
+<span class="nb">set</span> <span class="nx">expandtab</span>           <span class="s2">&quot; 不要用空格代替制表符  </span>
+<span class="s2">set cindent                 &quot;</span> <span class="err">使用</span><span class="nx">C</span><span class="err">样式的缩进</span>  
+<span class="nb">set</span> <span class="nx">smarttab</span>                <span class="s2">&quot; 在行和段开始处使用制表符  </span>
+<span class="s2">&quot;</span><span class="nb">set</span> <span class="nx">nowrap</span>                 <span class="s2">&quot; 不要换行显示一行</span>
 
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">&quot;</span> <span class="o">=&gt;</span> <span class="nx">Files</span><span class="p">,</span> <span class="nx">backups</span> <span class="ow">and</span> <span class="nx">undo</span>
+<span class="s2">&quot; =&gt; Files, backups and undo</span>
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">&quot;</span> <span class="nx">Turn</span> <span class="nx">backup</span> <span class="nx">off</span><span class="p">,</span> <span class="nx">since</span> <span class="nx">most</span> <span class="nx">stuff</span> <span class="n">is</span> <span class="k">in</span> <span class="nx">SVN</span><span class="p">,</span> <span class="nx">git</span> <span class="nx">anyway...</span>
-<span class="nb">set</span> <span class="nx">nobackup</span>
-<span class="nb">set</span> <span class="nx">nowb</span>
-<span class="nb">set</span> <span class="nx">noswapfile</span>
+<span class="s2">&quot; Turn backup off, since most stuff is in SVN, git anyway...</span>
+<span class="s2">set nobackup</span>
+<span class="s2">set nowb</span>
+<span class="s2">set noswapfile</span>
 
-<span class="s2">&quot;Persistent undo</span>
-<span class="s2">try</span>
-<span class="s2">    if MySys() == &quot;</span><span class="nx">windows</span><span class="s2">&quot;</span>
-<span class="s2">      set undodir=C:\Windows</span><span class="se">\T</span><span class="s2">emp</span>
-<span class="s2">    else</span>
-<span class="s2">      set undodir=~/.vim_runtime/undodir</span>
-<span class="s2">    endif</span>
-<span class="s2">    if version &gt;= 703 </span>
-<span class="s2">        set undofile</span>
-<span class="s2">    endif</span>
-<span class="s2">catch</span>
-<span class="s2">endtry</span>
+<span class="s2">&quot;</span><span class="nx">Persistent</span> <span class="nx">undo</span>
+<span class="nx">try</span>
+    <span class="k">if</span> <span class="nx">MySys</span><span class="p">()</span> <span class="o">==</span> <span class="s2">&quot;windows&quot;</span>
+      <span class="nb">set</span> <span class="n">undodir</span><span class="o">=</span><span class="nx">C</span><span class="p">:</span><span class="o">\</span><span class="nx">Windows</span><span class="o">\</span><span class="nx">Temp</span>
+    <span class="k">else</span>
+      <span class="nb">set</span> <span class="n">undodir</span><span class="o">=</span><span class="err">~</span><span class="p">/</span><span class="nx">.vim_runtime</span><span class="p">/</span><span class="nx">undodir</span>
+    <span class="nx">endif</span>
+    <span class="k">if</span> <span class="nb">version</span> <span class="o">&gt;=</span> <span class="mi">703</span> 
+        <span class="nb">set</span> <span class="nx">undofile</span>
+    <span class="nx">endif</span>
+<span class="nx">catch</span>
+<span class="nx">endtry</span>
 
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">&quot;</span> <span class="o">=&gt;</span> <span class="nb">JavaScript</span> <span class="nx">section</span>
+<span class="s2">&quot; =&gt; JavaScript section</span>
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">au FileType javascript call JavaScriptFold()</span>
-<span class="s2">au FileType javascript setl fen</span>
-<span class="s2">au FileType javascript setl nocindent</span>
+<span class="nx">au</span> <span class="nx">FileType</span> <span class="nb">javascript</span> <span class="nb">call</span> <span class="nx">JavaScriptFold</span><span class="p">()</span>
+<span class="nx">au</span> <span class="nx">FileType</span> <span class="nb">javascript</span> <span class="nx">setl</span> <span class="nx">fen</span>
+<span class="nx">au</span> <span class="nx">FileType</span> <span class="nb">javascript</span> <span class="nx">setl</span> <span class="nx">nocindent</span>
 
-<span class="s2">au FileType javascript imap &lt;c-t&gt; AJS.log();&lt;esc&gt;hi</span>
-<span class="s2">au FileType javascript imap &lt;c-a&gt; alert();&lt;esc&gt;hi</span>
+<span class="nx">au</span> <span class="nx">FileType</span> <span class="nb">javascript</span> <span class="nx">imap</span> <span class="o">&lt;</span><span class="nx">c</span><span class="na">-t</span><span class="o">&gt;</span> <span class="nx">AJS.log</span><span class="p">();</span><span class="o">&lt;</span><span class="nx">esc</span><span class="o">&gt;</span><span class="nx">hi</span>
+<span class="nx">au</span> <span class="nx">FileType</span> <span class="nb">javascript</span> <span class="nx">imap</span> <span class="o">&lt;</span><span class="nx">c</span><span class="na">-a</span><span class="o">&gt;</span> <span class="nx">alert</span><span class="p">();</span><span class="o">&lt;</span><span class="nx">esc</span><span class="o">&gt;</span><span class="nx">hi</span>
 
-<span class="s2">au FileType javascript inoremap &lt;buffer&gt; $r return </span>
-<span class="s2">au FileType javascript inoremap &lt;buffer&gt; $f //--- PH ----------------------------------------------&lt;esc&gt;FP2xi</span>
+<span class="nx">au</span> <span class="nx">FileType</span> <span class="nb">javascript</span> <span class="nx">inoremap</span> <span class="o">&lt;</span><span class="nx">buffer</span><span class="o">&gt;</span> <span class="nv">$r</span> <span class="k">return</span> 
+<span class="nx">au</span> <span class="nx">FileType</span> <span class="nb">javascript</span> <span class="nx">inoremap</span> <span class="o">&lt;</span><span class="nx">buffer</span><span class="o">&gt;</span> <span class="nv">$f</span> <span class="c1">//--- PH ----------------------------------------------&lt;esc&gt;FP2xi</span>
 
-<span class="s2">function! JavaScriptFold() </span>
-<span class="s2">    if version &gt;= 703</span>
-<span class="s2">        setl foldmethod=syntax</span>
-<span class="s2">        setl foldlevelstart=1</span>
-<span class="s2">    endif</span>
-<span class="s2">    syn region foldBraces start=/{/ end=/}/ transparent fold keepend extend</span>
+<span class="nx">function</span><span class="o">!</span> <span class="nx">JavaScriptFold</span><span class="p">()</span> 
+    <span class="k">if</span> <span class="nb">version</span> <span class="o">&gt;=</span> <span class="mi">703</span>
+        <span class="nx">setl</span> <span class="n">foldmethod</span><span class="o">=</span><span class="nx">syntax</span>
+        <span class="nx">setl</span> <span class="n">foldlevelstart</span><span class="o">=</span><span class="mi">1</span>
+    <span class="nx">endif</span>
+    <span class="nx">syn</span> <span class="nx">region</span> <span class="nx">foldBraces</span> <span class="n">start</span><span class="o">=/</span><span class="p">{</span><span class="o">/</span> <span class="n">end</span><span class="o">=/</span><span class="p">}</span><span class="o">/</span> <span class="nx">transparent</span> <span class="nx">fold</span> <span class="nx">keepend</span> <span class="nx">extend</span>
 
-<span class="s2">    function! FoldText()</span>
-<span class="s2">    return substitute(getline(v:foldstart), &#39;{.*&#39;, &#39;{...}&#39;, &#39;&#39;)</span>
-<span class="s2">    endfunction</span>
-<span class="s2">    if version &gt;= 703</span>
-<span class="s2">        setl foldtext=FoldText()</span>
-<span class="s2">    endif</span>
-<span class="s2">endfunction</span>
-
-<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">&quot;</span> <span class="o">=&gt;</span> <span class="nx">MRU</span> <span class="nx">plugin</span>
-<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="k">let</span> <span class="n">MRU_Max_Entries</span> <span class="o">=</span> <span class="mi">400</span>
-<span class="kt">map</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nb">f</span> <span class="p">:</span><span class="nx">MRU</span><span class="o">&lt;</span><span class="nx">CR</span><span class="o">&gt;</span>
+    <span class="nx">function</span><span class="o">!</span> <span class="nx">FoldText</span><span class="p">()</span>
+    <span class="k">return</span> <span class="nx">substitute</span><span class="p">(</span><span class="nx">getline</span><span class="p">(</span><span class="nx">v</span><span class="p">:</span><span class="nx">foldstart</span><span class="p">),</span> <span class="s1">&#39;{.*&#39;</span><span class="p">,</span> <span class="s1">&#39;{...}&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+    <span class="nx">endfunction</span>
+    <span class="k">if</span> <span class="nb">version</span> <span class="o">&gt;=</span> <span class="mi">703</span>
+        <span class="nx">setl</span> <span class="n">foldtext</span><span class="o">=</span><span class="nx">FoldText</span><span class="p">()</span>
+    <span class="nx">endif</span>
+<span class="nx">endfunction</span>
 
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">&quot; =&gt; Command-T</span>
+<span class="s2">&quot; =&gt; MRU plugin</span>
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">let g:CommandTMaxHeight = 15</span>
-<span class="s2">set wildignore+=*.o,*.obj,.git,*.pyc</span>
-<span class="s2">noremap &lt;leader&gt;j :CommandT&lt;cr&gt;</span>
-<span class="s2">noremap &lt;leader&gt;y :CommandTFlush&lt;cr&gt;</span>
+<span class="s2">let MRU_Max_Entries = 400</span>
+<span class="s2">map &lt;leader&gt;f :MRU&lt;CR&gt;</span>
 
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">&quot;</span> <span class="o">=&gt;</span> <span class="nx">Vim</span> <span class="nx">grep</span>
+<span class="s2">&quot;</span> <span class="o">=&gt;</span> <span class="nb">Command</span><span class="na">-T</span>
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="k">let</span> <span class="n">Grep_Skip_Dirs</span> <span class="o">=</span> <span class="s1">&#39;RCS CVS SCCS .svn generated&#39;</span>
-<span class="nb">set</span> <span class="n">grepprg</span><span class="o">=</span><span class="p">/</span><span class="nx">bin</span><span class="p">/</span><span class="nx">grep</span><span class="o">\</span> <span class="na">-nH</span>
+<span class="k">let</span> <span class="n">g</span><span class="p">:</span><span class="n">CommandTMaxHeight</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="nb">set</span> <span class="nx">wildignore</span><span class="o">+=*</span><span class="bp">.</span><span class="nx">o</span><span class="p">,</span><span class="o">*</span><span class="bp">.</span><span class="nx">obj</span><span class="p">,</span><span class="bp">.</span><span class="nx">git</span><span class="p">,</span><span class="o">*</span><span class="bp">.</span><span class="nx">pyc</span>
+<span class="nx">noremap</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">j</span> <span class="p">:</span><span class="nx">CommandT</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+<span class="nx">noremap</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">y</span> <span class="p">:</span><span class="nx">CommandTFlush</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="s2">&quot; =&gt; Vim grep</span>
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
+<span class="s2">let Grep_Skip_Dirs = &#39;RCS CVS SCCS .svn generated&#39;</span>
+<span class="s2">set grepprg=/bin/grep\ -nH</span>
 
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">&quot;</span> <span class="o">=&gt;</span> <span class="nx">MISC</span>
+<span class="s2">&quot; =&gt; MISC</span>
 <span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>
-<span class="s2">&quot;</span> <span class="nb">Remove</span> <span class="nx">the</span> <span class="nx">Windows</span> <span class="p">^</span><span class="nx">M</span> <span class="o">-</span> <span class="nx">when</span> <span class="nx">the</span> <span class="nx">encodings</span> <span class="nx">gets</span> <span class="nx">messed</span> <span class="nb">up</span>
-<span class="nx">noremap</span> <span class="o">&lt;</span><span class="nx">Leader</span><span class="o">&gt;</span><span class="nx">m</span> <span class="nx">mmHmt</span><span class="p">:</span><span class="o">%</span><span class="nb">s</span><span class="o">/&lt;</span><span class="nx">C</span><span class="na">-V</span><span class="o">&gt;&lt;</span><span class="nx">cr</span><span class="o">&gt;//</span><span class="nx">ge</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span><span class="s1">&#39;tzt&#39;</span><span class="nx">m</span>
+<span class="s2">&quot; Remove the Windows ^M - when the encodings gets messed up</span>
+<span class="s2">noremap &lt;Leader&gt;m mmHmt:%s/&lt;C-V&gt;&lt;cr&gt;//ge&lt;cr&gt;&#39;tzt&#39;m</span>
 
-<span class="s2">&quot;Quickly open a buffer for scripbble</span>
-<span class="s2">map &lt;leader&gt;q :e ~/buffer&lt;cr&gt;</span>
-<span class="s2">au BufRead,BufNewFile ~/buffer iab &lt;buffer&gt; xh1 ===========================================</span>
+<span class="s2">&quot;</span><span class="nx">Quickly</span> <span class="nb">open</span> <span class="nx">a</span> <span class="nx">buffer</span> <span class="nb">for</span> <span class="nx">scripbble</span>
+<span class="kt">map</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">q</span> <span class="p">:</span><span class="nx">e</span> <span class="err">~</span><span class="p">/</span><span class="nx">buffer</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+<span class="nx">au</span> <span class="nx">BufRead</span><span class="p">,</span><span class="nx">BufNewFile</span> <span class="err">~</span><span class="p">/</span><span class="nx">buffer</span> <span class="nx">iab</span> <span class="o">&lt;</span><span class="nx">buffer</span><span class="o">&gt;</span> <span class="nx">xh1</span> <span class="o">===========================================</span>
 
-<span class="s2">map &lt;leader&gt;pp :setlocal paste!&lt;cr&gt;</span>
+<span class="kt">map</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">pp</span> <span class="p">:</span><span class="nx">setlocal</span> <span class="nx">paste</span><span class="o">!&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
 
-<span class="s2">map &lt;leader&gt;bb :cd ..&lt;cr&gt;</span>
+<span class="kt">map</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">bb</span> <span class="p">:</span><span class="nx">cd</span> <span class="nx">..</span><span class="o">&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
 
-<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>  
-<span class="s2">&quot; 实用功能  </span>
-<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;</span>  
-<span class="s2">&quot;--------引号 &amp;&amp; 括号自动匹配  </span>
-<span class="s2">inoremap ( ()&lt;Esc&gt;i</span>
-<span class="s2">inoremap [ []&lt;Esc&gt;i</span>
-<span class="s2">inoremap { {&lt;CR&gt;}&lt;Esc&gt;O</span>
-<span class="s2">autocmd Syntax html,vim inoremap &lt; &lt;lt&gt;&gt;&lt;Esc&gt;i| inoremap &gt; &lt;c-r&gt;=ClosePair(&#39;&gt;&#39;)&lt;CR&gt;</span>
-<span class="s2">inoremap ) &lt;c-r&gt;=ClosePair(&#39;)&#39;)&lt;CR&gt;</span>
-<span class="s2">inoremap ] &lt;c-r&gt;=ClosePair(&#39;]&#39;)&lt;CR&gt;</span>
-<span class="s2">inoremap } &lt;c-r&gt;=CloseBracket()&lt;CR&gt;</span>
-<span class="s2">inoremap &quot;</span> <span class="o">&lt;</span><span class="nx">c</span><span class="na">-r</span><span class="o">&gt;=</span><span class="nx">QuoteDelim</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)</span><span class="o">&lt;</span><span class="nx">CR</span><span class="o">&gt;</span>
-<span class="nx">inoremap</span> <span class="s1">&#39; &lt;c-r&gt;=QuoteDelim(&quot;&#39;</span><span class="s2">&quot;)&lt;CR&gt;</span>
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;  </span>
+<span class="s2">&quot;</span> <span class="err">实用功能</span>  
+<span class="s2">&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;&quot;  </span>
+<span class="s2">&quot;</span><span class="o">--------</span><span class="err">引号</span> <span class="o">&amp;&amp;</span> <span class="err">括号自动匹配</span>  
+<span class="nx">inoremap</span> <span class="p">(</span> <span class="p">()</span><span class="o">&lt;</span><span class="nx">Esc</span><span class="o">&gt;</span><span class="nx">i</span>
+<span class="nx">inoremap</span> <span class="err">[</span> <span class="err">[</span><span class="cp">]</span><span class="nt">&lt;Esc&gt;</span>i
+inoremap { {<span class="nt">&lt;CR&gt;</span>}<span class="nt">&lt;Esc&gt;</span>O
+autocmd Syntax html,vim inoremap <span class="err">&lt;</span> <span class="nt">&lt;lt&gt;</span>&gt;<span class="nt">&lt;Esc&gt;</span>i| inoremap &gt; <span class="nt">&lt;c</span><span class="na">-r</span><span class="nt">&gt;</span>=ClosePair(&#39;&gt;&#39;)<span class="nt">&lt;CR&gt;</span>
+inoremap ) <span class="nt">&lt;c</span><span class="na">-r</span><span class="nt">&gt;</span>=ClosePair(&#39;)&#39;)<span class="nt">&lt;CR&gt;</span>
+inoremap ] <span class="nt">&lt;c</span><span class="na">-r</span><span class="nt">&gt;</span>=ClosePair(&#39;]&#39;)<span class="nt">&lt;CR&gt;</span>
+inoremap } <span class="nt">&lt;c</span><span class="na">-r</span><span class="nt">&gt;</span>=CloseBracket()<span class="nt">&lt;CR&gt;</span>
+inoremap &quot; <span class="nt">&lt;c</span><span class="na">-r</span><span class="nt">&gt;</span>=QuoteDelim(&#39;&quot;&#39;)<span class="nt">&lt;CR&gt;</span>
+inoremap &#39; <span class="nt">&lt;c</span><span class="na">-r</span><span class="nt">&gt;</span>=QuoteDelim(&quot;&#39;&quot;)<span class="nt">&lt;CR&gt;</span>
 
-<span class="s2">function ClosePair(char)</span>
-<span class="s2"> if getline(&#39;.&#39;)[col(&#39;.&#39;) - 1] == a:char</span>
-<span class="s2"> return &quot;</span><span class="o">\&lt;</span><span class="nb">Right</span><span class="o">&gt;</span><span class="s2">&quot;</span>
-<span class="s2"> else</span>
-<span class="s2"> return a:char</span>
-<span class="s2"> endif</span>
-<span class="s2">endf</span>
+function ClosePair(char)
+ if getline(&#39;.&#39;)<span class="cp">[</span><span class="nx">col</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="cp">]</span> == a:char
+ return &quot;\<span class="nt">&lt;Right&gt;</span>&quot;
+ else
+ return a:char
+ endif
+endf
 
-<span class="s2">function CloseBracket()</span>
-<span class="s2"> if match(getline(line(&#39;.&#39;) + 1), &#39;\s*}&#39;) &lt; 0</span>
-<span class="s2"> return &quot;</span><span class="o">\&lt;</span><span class="nx">CR</span><span class="o">&gt;</span><span class="p">}</span><span class="s2">&quot;</span>
-<span class="s2"> else</span>
-<span class="s2"> return &quot;</span><span class="o">\&lt;</span><span class="nx">Esc</span><span class="o">&gt;</span><span class="nx">j0f</span><span class="p">}</span><span class="nx">a</span><span class="s2">&quot;</span>
-<span class="s2"> endif</span>
-<span class="s2">endf</span>
+function CloseBracket()
+ if match(getline(line(&#39;.&#39;) + 1), &#39;\s*}&#39;) <span class="nt">&lt; 0</span>
+ <span class="na">return</span> <span class="err">&quot;\&lt;</span><span class="na">CR</span><span class="nt">&gt;</span>}&quot;
+ else
+ return &quot;\<span class="nt">&lt;Esc&gt;</span>j0f}a&quot;
+ endif
+endf
 
-<span class="s2">function QuoteDelim(char)</span>
-<span class="s2"> let line = getline(&#39;.&#39;)</span>
-<span class="s2"> let col = col(&#39;.&#39;)</span>
-<span class="s2"> if line[col - 2] == &quot;</span><span class="o">\\</span><span class="s2">&quot;</span>
-<span class="s2"> &quot;</span><span class="nx">Inserting</span> <span class="nx">a</span> <span class="nx">quoted</span> <span class="nx">quotation</span> <span class="nx">mark</span> <span class="k">into</span> <span class="n">the</span> <span class="kt">string</span>
- <span class="k">return</span> <span class="nx">a</span><span class="p">:</span><span class="nx">char</span>
- <span class="nx">elseif</span> <span class="nb">line</span><span class="err">[</span><span class="nx">col</span> <span class="o">-</span> <span class="mi">1</span><span class="cp">]</span> == a:char
+function QuoteDelim(char)
+ let line = getline(&#39;.&#39;)
+ let col = col(&#39;.&#39;)
+ if line<span class="cp">[</span><span class="nx">col</span> <span class="o">-</span> <span class="mi">2</span><span class="cp">]</span> == &quot;\\&quot;
+ &quot;Inserting a quoted quotation mark into the string
+ return a:char
+ elseif line<span class="cp">[</span><span class="nx">col</span> <span class="o">-</span> <span class="mi">1</span><span class="cp">]</span> == a:char
  &quot;Escaping out of the string
  return &quot;\<span class="nt">&lt;Right&gt;</span>&quot;
  else
