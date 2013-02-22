@@ -24,17 +24,13 @@
 </a>
         <header id="banner" class="body">
                 <h1><a href="../">mqShen </a></h1>
-                 <h2><strong>simple simple simple</strong></h2>                <nav><ul>
-                                                                                                    <li ><a href="../category/tools.html">tools</a></li>
-                				<li><a href="/aboutme.html">about</a></li>
-                </ul></nav>
-        </header><!-- /#banner -->
+                 <h2><strong>simple simple simple</strong></h2>        </header><!-- /#banner -->
 	<div id="page-content">
                 
 	<div id="articles-area">
 		            
-	        <aside id="featured" class="body">
-	            <article>
+            <div class="content-block">
+                <section>
 	                <h1 class="entry-title"><a href="../posts/2013/01/pelicanshi-yong-fang-fa.html">pelican使用方法</a></h1> 
 					<footer class="post-info">
         <abbr class="published" title="2013-01-14T00:00:00">
@@ -42,11 +38,45 @@
         </abbr>
 
 
-</footer><!-- /.post-info -->	            </article>
-	            	        </aside><!-- /#featured -->
+</footer><!-- /.post-info -->                    <p>今天把github上的Blog从octopress换成了<a href="http://http://blog.getpelican.com/">pelican</a>
+以前那些文章写得太随意那我就把这篇作为第一篇吧。</p>
+<h1 id="0++++">0.环境介绍</h1>
+<p>OS: centos 6</p>
+<h1 id="1++peclican">1.安装peclican</h1>
+<p>我是在github上下载了<a href="https://github.com/getpelican/pelican.git">pelican</a>的源码来安装的</p>
+<div class="codehilite"><pre><span class="n">python</span> <span class="n">setup</span><span class="p">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+
+
+<p>我们还需要安装markdown依赖</p>
+<div class="codehilite"><pre><span class="n">yum</span> <span class="n">install</span> <span class="n">python</span><span class="o">-</span><span class="n">markdown</span>
+</pre></div>
+
+
+<h1 id="2settingspy">2.settings.py</h1>
+<div class="codehilite"><pre><span class="c"># -*- coding: utf-8 -*-</span>
+<span class="n">import</span> <span class="n">sys</span>
+
+<span class="n">TIMEZONE</span> <span class="p">=</span> <span class="s">&#39;Asia/Shanghai&#39;</span>
+
+<span class="n">DEFAULT_LANG</span> <span class="p">=</span> <span class="s">&#39;zhs&#39;</span>
+<span class="n">DEFAULT_DATE_FORMAT</span> <span class="p">=</span> <span class="s">&#39;%Y %m %d %a&#39;</span>
+<span class="n">SITENAME</span> <span class="p">=</span> <span class="s">&quot;mqShen&quot;</span>
+<span class="n">SITESUBTITLE</span> <span class="p">=</span> <span class="s">&quot;simple simple simple&quot;</span>
+<span class="n">AUTHOR</span> <span class="p">=</span> <span class="s">&#39;mqShen&#39;</span>
+
+<span class="n">ARTICLE_URL</span> <span class="p">=</span> <span class="s">&#39;posts/{date ...</span></pre></div>
+	            </section>
+	                            <img class="scotch" src="/theme/images/scotch1.png" height="63" alt="" style="top:-40px;left:-33px;" width="130" />
+        <img class="scotch" src="/theme/images/scotch2.png" height="45" alt="" style="top:-25px;right:40px;" width="126" />
+        <img class="scotch" src="/theme/images/scotch3.png" height="73" alt="" style="bottom:-55px;left:-35px;" width="79" />
+        <img class="grid-top" src="/theme/images/grid-top.png" height="13" alt="" width="661" />
+        <img class="grid-right" src="/theme/images/grid-right.png" height="626" alt="" width="12" />
+        <img class="grid-bottom" src="/theme/images/grid-bottom.png" height="35" alt="" width="669" />
+	        </div><!-- /#featured -->
 	            
-	        <aside id="featured" class="body">
-	            <article>
+            <div class="content-block">
+                <section>
 	                <h1 class="entry-title"><a href="../posts/2013/01/vimpei-zhi-bei-wang-lu-1.html">vim配置备忘录(1)</a></h1> 
 					<footer class="post-info">
         <abbr class="published" title="2013-01-14T00:00:00">
@@ -54,15 +84,59 @@
         </abbr>
 
 
-</footer><!-- /.post-info -->	            </article>
-	            	        </aside><!-- /#featured -->
+</footer><!-- /.post-info -->                    <p>相关插件:<br />
+<a href="http://www.vim.org/scripts/script.php?script_id=1581">lookupfile</a>文件查找<br />
+<a href="http://www.vim.org/scripts/script.php?script_id=95">winmanager</a>窗口管理 <br />
+<a href="http://www.vim.org/scripts/script.php?script_id=3150">session</a>保存当前工作环境<br />
+<a href="http://www.vim.org/scripts/script.php?script_id=1658">NERDTree</a>文件浏览<br />
+<a href="http://www.vim.org/scripts/script.php?script_id=273">TagList</a>标签管理<br />
+</p>
+<p>vimrc配置:</p>
+<div class="codehilite"><pre><span class="s2">&quot;启用filetype插件</span>
+<span class="s2">filetype plugin on</span>
+<span class="s2">filetype indent on</span>
+<span class="s2">syntax on</span>
+
+<span class="s2">&quot;</span><span class="nx">fast</span> <span class="nx">saving</span>
+<span class="nx">nmap</span> <span class="o">&lt;</span><span class="nx">leader</span><span class="o">&gt;</span><span class="nx">w</span> <span class="p">:</span><span class="nx">w</span><span class="o">!&lt;</span><span class="nx">cr</span><span class="o">&gt;</span>
+
+<span class="s2">&quot;fast editing of the .vimrc</span>
+<span class="s2">map &lt;leader&gt;e :e! ~/.vim_runtime/vimrc&lt;cr&gt;</span>
+
+<span class="s2">set ruler                       &quot;</span><span class="err">一直显示当前位置</span>
+<span class="nb">set</span> <span class="nb">ignorecase</span>                  <span class="s2">&quot;搜索忽略大小写</span>
+<span class="s2">set smartcase</span>
+
+<span class="s2">set magic ...</span></pre></div>
+	            </section>
+	                            <img class="scotch" src="/theme/images/scotch1.png" height="63" alt="" style="top:-40px;left:-33px;" width="130" />
+        <img class="scotch" src="/theme/images/scotch2.png" height="45" alt="" style="top:-25px;right:40px;" width="126" />
+        <img class="scotch" src="/theme/images/scotch3.png" height="73" alt="" style="bottom:-55px;left:-35px;" width="79" />
+        <img class="grid-top" src="/theme/images/grid-top.png" height="13" alt="" width="661" />
+        <img class="grid-right" src="/theme/images/grid-right.png" height="626" alt="" width="12" />
+        <img class="grid-bottom" src="/theme/images/grid-bottom.png" height="35" alt="" width="669" />
+	        </div><!-- /#featured -->
 	    		<p class="paginator">
         Page 1 / 1
     </p>
 	</div>
-		        <section id="extras" >
-                                <div class="social">
-                        <h2>social</h2>
+	        <section id="extras" >
+        
+        <div class="sidebar-block black">
+            <section>
+                <h1>Tags</h1>
+                <ul>
+                                                                                                                            <li ><a href="../category/tools.html">tools</a></li>
+                    			    	<li><a href="/aboutme.html">about</a></li>
+                </ul>
+            </section>
+            <div class="sidebar-block-top"></div>
+            <div class="sidebar-block-btm"></div>
+        </div>
+
+                    <div class="sidebar-block">
+                <section>
+                    <h1>social</h1>
                         <ul>
                             <li><a href="http://mqshen.github.com/feeds/all.atom.xml" type="application/atom+xml" rel="alternate">atom feed</a></li>
                             
@@ -70,7 +144,10 @@
                                                     <li><a href="https://github.com/mqshen">github</a></li>
                                                     <li><a href="http://weibo.com/u/2040852050">weibo</a></li>
                                                 </ul>
-                </div><!-- /.social -->
+                </section>
+                <div class="sidebar-block-top"></div>
+                <div class="sidebar-block-btm"></div>
+            </div><!-- /.social -->
                 </section><!-- /#extras -->
 </div>
         <footer id="contentinfo" class="body">
