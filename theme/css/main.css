@@ -244,12 +244,13 @@ img.left, figure.left {float: left; margin: 0 2em 2em 0;}
 
 .grid-top {
     position:absolute;
+    left: -5px;
     top:-13px;
 }
 
 .grid-right {
     position:absolute;
-    right:-5px;
+    right:-10px;
     top:-5px;
 }
 
